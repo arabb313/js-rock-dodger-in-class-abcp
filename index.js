@@ -75,40 +75,22 @@ function endGame() {
 }
 
 function moveDodger(e) {
-  const code = e.which
-
-  if ([LEFT_ARROW, RIGHT_ARROW].indexOf(code) > -1) {
-    e.preventDefault()
-    e.stopPropagation()
-  }
-
-  if (code === LEFT_ARROW) {
-    moveDodgerLeft()
-  } else if (code === RIGHT_ARROW) {
-    moveDodgerRight()
-  }
-}
-
+  e.preventdefault();
+  e.stoppropagation();
+ if (e.which == 37) {
+   moveDodgerLeft()
+ }
+ e.preventdefault();
+ e.stoppropagation();
+ if (e.which == 39){
+    moveDodgerRight
+ }
 function moveDodgerLeft() {
-  window.requestAnimationFrame(function() {
-    const left = positionToInteger(DODGER.style.left)
-
-    if (left > 0) {
-      DODGER.style.left = `${left - 4}px`;
-    }
-  })
-}
-
+ var myposition = positionToInteger 
+}  
 function moveDodgerRight() {
-  window.requestAnimationFrame(function() {
-    const left = positionToInteger(DODGER.style.left)
-
-    if (left < 360) {
-      DODGER.style.left = `${left + 4}px`;
-    }
-  })
+  
 }
-
 function positionToInteger(p) {
   return parseInt(p.split('px')[0]) || 0
 }
